@@ -16,7 +16,7 @@ Notes:
 - The third (last) argument defaults to `/Volumes/CIRCUITPY` so you don't need to specify that if on MacOS.
 - The second argument defaults to `reqs.txt` in the curretn directory, so it also may be omitted if you're in the directory containing `reqs.txt`
 - The first argument is the location of the unzipped CircuitPython bundle
-
+- "cirpycp" is pronounce as "joe PIS-cə-poh"
 
 
 ---
