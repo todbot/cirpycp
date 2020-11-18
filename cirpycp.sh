@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #
-# circuitpycp.sh -- copy required files from adafruit-circuitpython-bundle
-#                   to CIRCUITPY disk
+# cirpycp.sh -- copy required files from adafruit-circuitpython-bundle
+#               to CIRCUITPY disk
 #
 # 2020 - @todbot & @johnedgarpark
 #
