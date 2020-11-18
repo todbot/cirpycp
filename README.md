@@ -1,6 +1,8 @@
-# circuitpycp
+# cirpycp
 
-This tries to make it easier to copy files from the
+Copy files from CircuitPython Bundle to your CircuitPython device.
+
+This script tries to make it easier to copy files from the
 [CircuitPython Bundle](https://circuitpython.org/libraries)
 to your CircuitPython device.
 
