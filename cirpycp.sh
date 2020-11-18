@@ -6,27 +6,39 @@
 # 2020 - @todbot & @johnedgarpark
 #
 
-bundlepath_default=${HOME}/projects/circuitpython/adafruit-circuitpython-bundle-6.x-mpy-20201117
+bundlepath_default='' 
 reqs_default=reqs.txt
 destdir_default=/Volumes/CIRCUITPY
 
-cpcmd='cp -RX'
+cpcmd='cp -R'             # unix-like default
+UNAME=$(uname -s)
+if [ $UNAME == "Darwin" ]; then
+   cpcmd='cp -RX'         # macos case
+fi
 
 # or pass in 1st argument = source path, 2nd arg = requirements file, 3rd = dest
 bundlepath=${1:-$bundlepath_default}
 reqfile=${2:-$reqs_default}
 destdir=${3:-$destdir_default}
 
+if [ ! -d "$bundlepath" ]; then
+    echo "You need to specify a CircuitPython bundle dir";  exit 1
+fi
 if [ ! -f "$reqfile" ]; then
-    echo "You need to specify a 'reqs.txt' file"
-    exit 1
+    echo "You need to specify a 'reqs.txt' file"; exit 1
+fi
+if [ ! -d "$destdir" ] || [ ! -d "$destdir/lib" ]; then
+    echo "Destdir '$destdir/lib' not found"; exit 1
+fi
+if [[ $destdir == *"lib" ]]; then
+    echo "Destdir '$destdir' contains 'lib', please remove it"; exit 1
 fi
 
-echo "bundlepath:${bundlepath}"
-echo "reqsfile:${reqfile}"
-echo "destdir:${destdir}"
+echo "bundlepath: ${bundlepath}"
+echo "reqsfile: ${reqfile}"
+echo "destdir: ${destdir}"
 
-echo "copying files to $destdir..."
+echo "copying files to $destdir/lib..."
 while read f; do
     echo "$f"
     if [[ $f == "#"* ]];  # if line is a comment
@@ -38,6 +50,7 @@ while read f; do
     fi
 done <$reqfile
 
+echo
 
 
 
