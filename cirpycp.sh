@@ -28,12 +28,13 @@ echo "destdir:${destdir}"
 
 echo "copying files to $destdir..."
 while read f; do
+    echo "$f"
     if [[ $f == "#"* ]];  # if line is a comment
-    then  
-        echo "$f"
+    then
+        echo "--"
     else
-        echo ".. ${cpcmd} \"${bundlepath}/lib/${f}\" \"${destdir}/lib\""
-                 ${cpcmd} \"${bundlepath}/lib/${f}\" \"${destdir}/lib\"
+#        echo ".. ${cpcmd} \"${bundlepath}/lib/${f}\" \"${destdir}/lib\""
+                 ${cpcmd} "${bundlepath}/lib/${f}" "${destdir}/lib"
     fi
 done <$reqfile
 
