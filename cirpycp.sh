@@ -6,6 +6,11 @@
 # 2020 - @todbot & @johnedgarpark
 #
 
+if [ "$#" -eq 0 ] ; then
+    echo "usage: cirpycp [bundle_path] [reqs.txt] [dest_dir]"
+    exit 1
+fi
+
 bundlepath_default='' 
 reqs_default=reqs.txt
 destdir_default=/Volumes/CIRCUITPY
