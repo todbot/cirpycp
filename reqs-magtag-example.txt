@@ -2,6 +2,7 @@
 # reqs for magtag 
 adafruit_bitmap_font
 adafruit_display_text
+adafruit_display_shapes
 adafruit_il0373.mpy
 adafruit_io
 adafruit_magtag
