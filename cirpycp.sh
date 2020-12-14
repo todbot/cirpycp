@@ -46,6 +46,9 @@ echo "destdir: ${destdir}"
 echo "copying files to $destdir/lib..."
 while read f; do
     echo "$f"
+    if [[ -z "$f" ]]; then  # if line is blank
+       continue
+    fi
     if [[ $f == "#"* ]];  # if line is a comment
     then
         echo "--"
